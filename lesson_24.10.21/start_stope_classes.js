@@ -56,6 +56,26 @@ class Timer {
   };
 
   displayTimer(distance, domElement) {
+    DisplayTimerCalass.displayTimer(distance, domElement);
+  }
+  // displayTimer(distance, domElement) {
+  //   if (distance !== 0) {
+  //     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  //     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  //     const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  //     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  //     domElement.innerHTML = `days: ${days} hours: ${hours} mins: ${mins} seconds: ${seconds}`;
+  //   } else {
+  //     domElement.innerHTML = 'days: 00 hours: 00 mins: 00 seconds: 00';
+  //   }
+  // }
+}
+
+const timer = new Timer(refs);
+timer.init();
+
+class DisplayTimerCalass {
+  static displayTimer = (distance, domElement) => {
     if (distance !== 0) {
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -65,11 +85,5 @@ class Timer {
     } else {
       domElement.innerHTML = 'days: 00 hours: 00 mins: 00 seconds: 00';
     }
-  }
+  };
 }
-
-const timer = new Timer(refs);
-
-console.log(timer);
-
-timer.init();
