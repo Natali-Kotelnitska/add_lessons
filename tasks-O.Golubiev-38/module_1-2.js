@@ -14,17 +14,17 @@
 let total = 0;
 let result = 0;
 
-while (result != null) {
-    // /prompt при натисканні cancel видає null - тому !=null
-  result = prompt('Enter a number');
-  let resultNum = Number(result);
-    if (!isNaN(resultNum)) {
-    //   якщо число (!isNan) тоді виконається тіло
-    total += resultNum;
-  }
-}
+// while (result != null) {
+//     // /prompt при натисканні cancel видає null - тому !=null
+//   result = prompt('Enter a number');
+//   let resultNum = Number(result);
+//     if (!isNaN(resultNum)) {
+//     //   якщо число (!isNan) тоді виконається тіло
+//     total += resultNum;
+//   }
+// }
 
-alert(`Total sum ${total}`);
-// ======= ======== ==============
+// alert(`Total sum ${total}`);
+// // ======= ======== ==============
 
 
