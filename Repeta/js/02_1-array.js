@@ -1,5 +1,5 @@
-const friends = ['Mango', 'Kiwi', 'Poly', 'Ajax'];
-console.table(friends);
+// const friends = ['Mango', 'Kiwi', 'Poly', 'Ajax'];
+// console.table(friends);
 // const lastIndex = friends.length - 1;
 
 // for (let i = 0; i < friends.length; i += 1) {
@@ -29,20 +29,20 @@ let total = 0;
 //   // total = total + cart[i];
 // }
 
-for (const value of cart) {
-  total += value;
-}
+// for (const value of cart) {
+//   total += value;
+// }
 
-console.log('Total: ', total);
+// console.log('Total: ', total);
 
-// Добавить такс
+// // Добавить такс
 
 // for (let i = 0; i < cart.length; i += 1) {
 //   cart[i] = Math.round(cart[i] * 1.1);
 // }
 
-// for (let value of cart) {
-//   value = Math.round(value * 1.1);
-// }
+// // for (let value of cart) {
+// //   value = Math.round(value * 1.1);
+// // }
 
 // console.log(cart);
