@@ -35,15 +35,15 @@
 
 // console.log('Total: ', total);
 
-// Добавить такс
+// // Добавить такс
 
 // for (let i = 0; i < cart.length; i += 1) {
 //   cart[i] = Math.round(cart[i] * 1.1);
 // }
 
-// for (let value of cart) {
-//   value = Math.round(value * 1.1);
-// }
+// // for (let value of cart) {
+// //   value = Math.round(value * 1.1);
+// // }
 
 // console.log(cart);
 
