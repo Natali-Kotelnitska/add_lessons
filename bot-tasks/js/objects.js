@@ -23,6 +23,21 @@
 // Напиши функцию countProps(object), которая считает и возвращает
 // количество собственных свойств объекта в параметре object.
 // Используй переменную propCount для хранения количества свойств объекта.
+// 1. варіант (for...in, .hasOwnProperty(obj))
+// function countProps(object) {
+//   // Change code below this line
+//   let propCount = 0;
+
+//   for (const key in object) {
+//     if (object.hasOwnProperty(key)) {
+//       propCount += 1;
+//     }
+//   }
+
+//   return propCount;
+//   // Change code above this line
+// }
+// 2. варіант (Object.keys(obj))
 // function countProps(object) {
 //   let propCount = 0;
 //   // Change code below this line
@@ -79,6 +94,7 @@
 // }
 
 {
+  //Task 17/41 Module 3.
   // Перебери массив объектов colors используя цикл for...of.
   // Добавь в массив hexColors значения свойств hex,
   //     а в массив rgbColors значения свойств rgb из всех
@@ -156,7 +172,9 @@
 
     const newArray = [];
     for (const product of products) {
-      if (product[propName]) newArray.push(product[propName]);
+      if (product[propName]) {
+        newArray.push(product[propName]);
+      }
     }
     return newArray;
   }
@@ -164,7 +182,7 @@
   // варіант 2.
   // let valueArray = [];
   // for (const product of products) {
-  //   // console.log(product);
+  //
   //   const ownProperty = Object.getOwnPropertyNames(product);
   //   // console.log(ownProperty);
   //   if (ownProperty.includes(propName)) {
@@ -223,10 +241,141 @@ function calculateTotalPrice(productName) {
   // console.log(calculateTotalPrice('Scanner')); //8100
 }
 
-function checkForSpam(message) {
-  let result;
+// function checkForSpam(message) {
+//   let result;
+//   // Change code below this line
+//   result = message.toLowerCase().includes('spam' || 'sale');
+//   // Change code above this line
+//   return result;
+// }
+
+const atTheOldToad = {
+  potions: [
+    { name: 'Speed potion', price: 460 },
+    { name: 'Dragon breath', price: 780 },
+    { name: 'Stone skin', price: 520 },
+  ],
   // Change code below this line
-  result = message.toLowerCase().includes('spam' || 'sale');
+  getPotions() {
+    return this.potions;
+  },
+  addPotion(newPotion) {
+    for (const potion of this.potions) {
+      if (potion.name === newPotion.name) {
+        return `Error! Potion ${newPotion.name} is already in your inventory!`;
+      }
+    }
+
+    this.potions.push(newPotion);
+    // return this.potions;
+  },
+  removePotion(potionName) {
+    let potionIndex = -1;
+    for (const potion of this.potions) {
+      potionIndex += 1;
+
+      if (potion.name === potionName) {
+        this.potions.splice(potionIndex, 1);
+      }
+    }
+    return `Potion ${potionName} is not in inventory!`;
+  },
+  updatePotionName(oldName, newName) {
+    let potionIndex = -1;
+
+    for (const potion of this.potions) {
+      potionIndex += 1;
+
+      if (potion.name === oldName) {
+        this.potions[potionIndex].name = newName;
+        return;
+      }
+    }
+    return `Potion ${oldName} is not in inventory!`;
+  },
   // Change code above this line
-  return result;
+};
+
+// console.log(atTheOldToad.getPotions());
+// console.log(atTheOldToad.addPotion({ name: 'Invisibility', price: 620 }));
+// console.log(atTheOldToad.addPotion({ name: 'Power potion', price: 270 }));
+// console.log(atTheOldToad.potions);
+// console.log(atTheOldToad.addPotion({ name: 'Dragon breath', price: 700 })); //"Error! Potion Dragon breath is already in your inventory!"
+// console.log(atTheOldToad.removePotion('Dragon breath'));
+// console.log(atTheOldToad.updatePotionName('Dragon breath', 'Polymorth'));
+
+//Task 4/48 module 4
+const pizzaPalace = {
+  pizzas: ['Ultracheese', 'Smoked', 'Four meats'],
+  order(pizzaName, onSuccess, onError) {
+    onSuccess(pizzaName);
+    onError();
+  },
+};
+// Change code above this line
+
+// Callback for onSuccess
+function makePizza(pizzaName) {
+  return `Your order is accepted. Cooking pizza ${pizzaName}.`;
 }
+
+// Callback for onError
+function onOrderError(error) {
+  return `Error! ${error}`;
+}
+
+// Method calls with callbacks
+// console.log(pizzaPalace.order('Smoked', makePizza, onOrderError));
+// console.log(pizzaPalace.order('Four meats', makePizza, onOrderError));
+// console.log(pizzaPalace.order('Big Mike', makePizza, onOrderError));
+// console.log(pizzaPalace.order('Vienna', makePizza, onOrderError));
+
+//Task 13/48 module 4 (не розвязується з перебираючими методами - лише з for)
+function changeEven(numbers, value) {
+  // Change code below this line
+  const evenNumbers = [...numbers];
+  console.log(evenNumbers);
+  evenNumbers.map(element => {
+    if (element % 2 === 0) {
+      evenNumbers.push((element += value));
+      console.log(element);
+    }
+  });
+  // for (let i = 0; i < evenNumbers.length; i += 1) {
+  //   if (evenNumbers[i] % 2 === 0) {
+  //     evenNumbers[i] += value;
+  //   }
+
+  return evenNumbers;
+  // Change code above this line
+}
+
+// console.log(changeEven([1, 2, 3, 4, 5], 10)); //[1, 12, 3, 14, 5]
+
+// Task 29/48 Module 4
+let users = [
+  {
+    name: 'Blackburn Dotson',
+    email: 'blackburndotson@furnigeer.com',
+    eyeColor: 'brown',
+    friends: ['Jacklyn Lucas', 'Linda Chapman'],
+    isActive: false,
+    balance: 1498,
+    gender: 'male',
+  },
+  {
+    name: 'Sheree Anthony',
+    email: 'shereeanthony@kog.com',
+    eyeColor: 'brown',
+    friends: ['Goldie Gentry', 'Briana Decker'],
+    isActive: true,
+    balance: 2764,
+    gender: 'female',
+  },
+];
+const getUserWithEmail = (users, email) => {
+  const userEmail = users.find(user => user.email === email);
+  return userEmail;
+};
+
+console.log(getUserWithEmail(users, 'blackburndotson@furnigeer.com'));
