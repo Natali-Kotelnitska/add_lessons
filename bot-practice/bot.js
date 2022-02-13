@@ -1,4 +1,4 @@
-"use script";
+'use script';
 
 // const x = 5;
 // const y = 3;
@@ -39,9 +39,17 @@
 // Оператор continue
 
 const number = 10;
-for (let i = 0; i <= number; i += 1){
-    if (i % 2 === 0) {
-        continue;
-    }
-    console.log('нечетное і', i);
+for (let i = 0; i <= number; i += 1) {
+  if (i % 2 === 0) {
+    continue;
+  }
+  // console.log('нечетное і', i);
 }
+
+var isSquare = function (n) {
+  return Math.sqrt(n) % 1 === 0; // fix me
+};
+console.log(isSquare(0));
+console.log(isSquare(-2));
+console.log(isSquare(25));
+console.log(Number.isInteger(-1));
